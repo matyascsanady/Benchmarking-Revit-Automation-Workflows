@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<PlatformTarget>x64</PlatformTarget>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Autodesk.Revit.SDK" Version="2026.0.0.9999" />
+		<PackageReference Include="FrameworkExtensions.PresentationCore" Version="1.0.0.33" />
+	</ItemGroup>
+
+    <PropertyGroup>
+	    <StartAction>Program</StartAction>
+	    <StartProgram>C:\Program Files\Autodesk\Revit 2026\Revit.exe</StartProgram>
+	    <StartArguments>/language ENG</StartArguments>
+    </PropertyGroup>
+
+	<!-- Post-Build Event -->
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="if not exist &quot;$(APPDATA)\Autodesk\Revit\Addins\2026\SampleAddin&quot; mkdir &quot;$(APPDATA)\Autodesk\Revit\Addins\2026\SampleAddin&quot;" />
+		<Exec Command="xcopy &quot;$(TargetDir)*.dll&quot; &quot;$(APPDATA)\Autodesk\Revit\Addins\2026\SampleAddin&quot; /Y" />
+	</Target>
+	
+</Project>

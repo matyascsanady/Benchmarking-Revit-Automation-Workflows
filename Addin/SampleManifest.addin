@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+    <AddIn Type="Application">
+        <Name>Sample Add-in</Name>
+        <FullClassName>Addin.Application</FullClassName>
+        <VisibilityMode>AlwaysVisible</VisibilityMode>
+	    <Assembly>SampleAddin/Addin.dll</Assembly>
+	    <AddInId>e544d637-608d-4d6c-89a7-3b783967bf5f</AddInId>
+        <VendorId>SAMPL</VendorId>
+        <VendorDescription>Sample add-in for my thesis.</VendorDescription>
+    </AddIn>
+</RevitAddIns>
